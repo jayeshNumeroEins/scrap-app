@@ -73,6 +73,9 @@ class UsersService {
     AdminLogin(data) {
         return this.api.AdminLogin(data);
     }
+    GetAllUsersList() {
+        return this.api.GetAllUsersList();
+    }
 }
 UsersService.ɵfac = function UsersService_Factory(t) { return new (t || UsersService)(_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_api_users_api__WEBPACK_IMPORTED_MODULE_2__["UsersApi"]), _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 UsersService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjectable"]({ token: UsersService, factory: UsersService.ɵfac });
@@ -229,12 +232,21 @@ class UsersApi {
         this.api = api;
         this.http = http;
         this.apiService = apiService;
+        this.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZGM2YWE3NmEwMWNkMWUwMjNiMDY2NSIsInVzZXJuYW1lIjoidW5kZWZpbmVkIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjA4OTYyNzEyfQ.B_DSG9J4wBNcw3EgyXIis7-V8KJGXolNYcfQDbGsOeo";
         this.apiController = 'users';
         this.url = apiService.url + 'users/';
+        console.log(this.token, ' - - -  token-');
     }
     AdminLogin(data) {
         let url = this.url + 'login/admin';
         return this.http.post(url, data).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(result => {
+            return result;
+        }));
+    }
+    ;
+    GetAllUsersList() {
+        let url = this.url + 'get-all-users';
+        return this.http.get(url, this.token).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(result => {
             return result;
         }));
     }

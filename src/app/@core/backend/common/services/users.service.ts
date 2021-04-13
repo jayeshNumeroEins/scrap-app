@@ -11,4 +11,8 @@ export class UsersService {
   AdminLogin(data): Observable<any[]> {
     return this.api.AdminLogin(data);
   }
+
+  GetAllUsersList():Observable<any[]> {
+    return this.api.GetAllUsersList();
+  }
 }

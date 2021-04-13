@@ -8,15 +8,24 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpHeaders } fro
 @Injectable()
 export class UsersApi {
   url : any;
+  token :any  =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZGM2YWE3NmEwMWNkMWUwMjNiMDY2NSIsInVzZXJuYW1lIjoidW5kZWZpbmVkIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjA4OTYyNzEyfQ.B_DSG9J4wBNcw3EgyXIis7-V8KJGXolNYcfQDbGsOeo";
   private readonly apiController: string = 'users';
 
   constructor(private api: HttpService, private http: HttpClient,private apiService: ApiService) {
     this.url = apiService.url+'users/';
+    console.log(this.token, ' - - -  token-');
    }
 
    AdminLogin(data): Observable<any> {
     let url = this.url + 'login/admin';
     return this.http.post(url, data).pipe(map(result => {
+      return result;
+    }));
+  };
+
+  GetAllUsersList(): Observable<any> {
+    let url = this.url + 'get-all-users';
+    return this.http.get(url, this.token).pipe(map(result => {
       return result;
     }));
   };
