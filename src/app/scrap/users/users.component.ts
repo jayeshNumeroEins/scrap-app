@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component , ChangeDetectorRef} from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../../@core/backend/common/services/users.service';
+import * as _ from 'underscore';
+
 @Component({
   selector: 'scrap-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
-  constructor(private router:Router,private usersService:UsersService ) {
+  UsersList:any;
+  constructor(private router:Router,private usersService:UsersService , private ref: ChangeDetectorRef) {
+    this.UsersList = [];
     this.GetAllUsersList();
   };
 
@@ -17,7 +21,10 @@ export class UsersComponent {
 
   GetAllUsersList(){
     this.usersService.GetAllUsersList().subscribe(result=>{
-      console.log(result, ' - - - -  - -  result 18');
+      if(result.status &&  result.status ==  'success') {
+        this.UsersList =  _.where(result.data,{type:'user'});
+        this.ref.markForCheck();
+      }
     });
   };
 }

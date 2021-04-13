@@ -12,7 +12,7 @@ export class UsersService {
     return this.api.AdminLogin(data);
   }
 
-  GetAllUsersList():Observable<any[]> {
+  GetAllUsersList():Observable<any> {
     return this.api.GetAllUsersList();
   }
 }

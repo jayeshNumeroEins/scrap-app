@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "scrap-app-admin": {
+    "test": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -24,8 +24,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "src/assets/demo/demo.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -62,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "scrap-app-admin:build"
+            "browserTarget": "test:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "scrap-app-admin:build:production"
+              "browserTarget": "test:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "scrap-app-admin:build"
+            "browserTarget": "test:build"
           }
         },
         "test": {
@@ -90,8 +89,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-            ]
+            "scripts": []
           }
         },
         "lint": {
@@ -111,16 +109,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "scrap-app-admin:serve"
+            "devServerTarget": "test:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "scrap-app-admin:serve:production"
+              "devServerTarget": "test:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "scrap-app-admin"
+  "defaultProject": "test"
 }

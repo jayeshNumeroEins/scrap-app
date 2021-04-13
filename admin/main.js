@@ -227,6 +227,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class UsersApi {
     constructor(api, http, apiService) {
         this.api = api;
@@ -235,7 +236,6 @@ class UsersApi {
         this.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmZGM2YWE3NmEwMWNkMWUwMjNiMDY2NSIsInVzZXJuYW1lIjoidW5kZWZpbmVkIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjA4OTYyNzEyfQ.B_DSG9J4wBNcw3EgyXIis7-V8KJGXolNYcfQDbGsOeo";
         this.apiController = 'users';
         this.url = apiService.url + 'users/';
-        console.log(this.token, ' - - -  token-');
     }
     AdminLogin(data) {
         let url = this.url + 'login/admin';
@@ -246,7 +246,7 @@ class UsersApi {
     ;
     GetAllUsersList() {
         let url = this.url + 'get-all-users';
-        return this.http.get(url, this.token).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(result => {
+        return this.http.get(url, { headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]({ 'token': this.token }) }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["map"])(result => {
             return result;
         }));
     }

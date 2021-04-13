@@ -35,12 +35,20 @@
 													<th>Contact No.</th>
 													<th>City</th>
 													<th>Country</th>
-													<th>Scrap Items</th>
-													<th class="table-3-click-size">Action</th>
+													<!-- <th>Scrap Items</th>
+													<th class="table-3-click-size">Action</th> -->
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
+                        <tr *ngFor="let user of UsersList">
+                          <td>{{ user.fullName }}</td>
+                          <td>{{ user.email }}</td>
+                          <td>{{ user.phone }}</td>
+                          <td>{{ user.city }}</td>
+                          <td>{{ user.country }}</td>
+                          <td>{{ user.country }}</td>
+                        </tr>
+												<!-- <tr>
 													<td>Garrett Winters</td>
 													<td>info@garrett.com</td>
 													<td>23456891</td>
@@ -85,7 +93,7 @@
 														</div>
 
 													</td>
-												</tr>
+												</tr> -->
 											</tbody>
 										</table>
 									</div>
