@@ -1,0 +1,70 @@
+
+		<!-- Sidebar -->
+		<div class="sidebar">
+			<div class="sidebar-background"></div>
+			<div class="sidebar-wrapper scrollbar-inner">
+				<div class="sidebar-content">
+					<div class="user">
+						<div class="photo">
+							<img src="../../../assets/img/profile.jpg" alt="image profile">
+						</div>
+						<div class="info">
+							<a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+								<span>
+									Tom Evans
+									<span class="user-level">Administrator</span>
+								</span>
+							</a>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+					<ul class="nav">
+						<li class="nav-item active">
+							<a href="javascript:void(0)" (click)="routeToPage('/dashboard')">
+								<i class="flaticon-home"></i>
+								<p>Dashboard</p>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a href="javascript:void(0)" (click)="routeToPage('/users')">
+								<i class="flaticon-user"></i>
+								<p>Users</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="javascript:void(0)" (click)="routeToPage('/yards')">
+								<i class="flaticon-users"></i>
+								<p>Yards</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#forms">
+								<i class="flaticon-agenda-1"></i>
+								<p>Scrap Items</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse" id="forms">
+								<ul class="nav nav-collapse">
+									<li>
+										<a href="javascript:void(0)">
+											<span class="sub-item">Metal Prices</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="sub-item">Export Items</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)">
+											<span class="sub-item">Scrap Item</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
